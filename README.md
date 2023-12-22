@@ -1,4 +1,4 @@
-# News API - Professional Readme
+# ADADERANA NEWS API
 
 Welcome to the News API! This API allows you to retrieve the latest news articles from various sources. This readme will guide you through the installation process and provide instructions on how to use the API effectively.
 
@@ -89,6 +89,6 @@ The News API is open-source software licensed under the [MIT License](https://gi
 
 ## Contact
 
-If you have any questions or need further assistance, please feel free to contact the project maintainers at [email@example.com](mailto:email@example.com).
+If you have any questions or need further assistance, please feel free to contact the project maintainers at [nb.developing@gmail.com](nb.developing@gmail.com).
 
 Thank you for using the News API! We hope it serves your needs effectively.
