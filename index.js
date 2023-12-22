@@ -5,16 +5,11 @@ const cheerio = require('cheerio');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// URL of the website
 const url = 'https://sinhala.adaderana.lk/sinhala-hot-news.php';
-
-// Middleware to enable CORS
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
-
-// Function to scrape the description from a news URL
 async function scrapeDescription(newsUrl) {
   try {
     const response = await axios.get(newsUrl);
@@ -28,8 +23,6 @@ async function scrapeDescription(newsUrl) {
   }
   return '';
 }
-
-// Function to scrape the image from a news URL
 async function scrapeImage(newsUrl) {
   try {
     const response = await axios.get(newsUrl);
@@ -44,7 +37,7 @@ async function scrapeImage(newsUrl) {
   return '';
 }
 
-// Route to scrape and return the latest news data with descriptions and images
+// Route 
 app.get('/news', async (req, res) => {
   try {
     const response = await axios.get(url);
@@ -56,13 +49,8 @@ app.get('/news', async (req, res) => {
       const newsTime = newsArticle.find('.comments span').next().text().trim();
       const fullTime = (newsDate + ' ' + newsTime).trim();
       const newsUrl = 'https://sinhala.adaderana.lk/' + newsArticle.find('h2 a').attr('href');
-
-      // Scrape the description from the news URL
       const newsDescription = await scrapeDescription(newsUrl);
-
-      // Scrape the image from the news URL
       const imageUrl = await scrapeImage(newsUrl);
-
       const newsData = {
         title: newsHeadline,
         description: newsDescription,
