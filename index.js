@@ -45,7 +45,7 @@ async function scrapeImage(newsUrl) {
 }
 
 // Route to scrape and return the latest news data with descriptions and images
-app.get('/latest-news', async (req, res) => {
+app.get('/news', async (req, res) => {
   try {
     const response = await axios.get(url);
     if (response.status === 200) {
