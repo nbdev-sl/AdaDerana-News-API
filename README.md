@@ -2,6 +2,10 @@
 
 Welcome to the AdaDerana News API! This API allows you to retrieve the latest news articles from various sources. This readme will guide you through the installation process and provide instructions on how to use the API effectively. Keep in mind this is only for education purpose only!!!!
 
+# Example APi
+
+https://ada-derana-news-api.vercel.app/
+
 ## Installation
 
 To install and set up the News API, please follow the steps below:
