@@ -15,7 +15,11 @@ async function scrapeDescription(newsUrl) {
     const response = await axios.get(newsUrl);
     if (response.status === 200) {
       const $ = cheerio.load(response.data);
-      const newsDescription = $('.news-content p').text();
+      let paragraphs = [];
+      $('.news-content p').each((i, el) => {
+        paragraphs.push($(el).text().trim());
+      });
+      const newsDescription = paragraphs.join('\n\n');
       return newsDescription;
     }
   } catch (error) {
@@ -23,6 +27,7 @@ async function scrapeDescription(newsUrl) {
   }
   return '';
 }
+
 async function scrapeImage(newsUrl) {
   try {
     const response = await axios.get(newsUrl);
@@ -70,5 +75,5 @@ app.get('/news', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(Server is running on port ${PORT});
+  console.log(`Server is running on port ${PORT}`);
 });
